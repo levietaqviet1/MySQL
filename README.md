@@ -1,6 +1,6 @@
 # MySQL
 
-## Các mở ER Diagram
+## Cách mở ER Diagram
 
 - Bước 1: Mở MySQL 
 
@@ -12,7 +12,7 @@
 
 ![image](https://github.com/levietaqviet1/MySQL/assets/85175337/310b9e42-54bc-49e2-851e-522dda77674c)
 
-- Bước 4: hiện ra cửa sổ Reverse thì bấm next nếu như mọi thông tin là chuẩn rồi
+- Bước 4: Hiện ra cửa sổ Reverse thì bấm next nếu như mọi thông tin là chuẩn rồi
 
 - Bước 5: Cứ next đến ô chọn database muốn hiện Diagram
 
