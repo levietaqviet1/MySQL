@@ -6,6 +6,8 @@
 - [Code cơ bản để nhớ lại lệch trong SQL](#Code-cơ-bản-để-nhớ-lại-lệch-trong-SQL) 
 - [Trigger](#Trigger)
 - [STORED PROCEDURE](#STORED-PROCEDURE)
+- [View](#View)
+- [Function](#Function)
 
 ## Cách mở ER Diagram
 
@@ -228,6 +230,103 @@ CALL calculate_total_salary();
 ```
 
 Stored Procedure được đặt tên là "calculate_total_salary". Khi Stored Procedure được gọi, nó sẽ thực hiện câu lệnh "SELECT SUM(salary) FROM salaries;", và trả về tổng lương của tất cả các nhân viên.
+
+## View
+
+- View là một bảng ảo được tạo từ một hoặc nhiều bảng trong cơ sở dữ liệu MySQL. Nó không chứa dữ liệu thực tế, mà chỉ là một cách để hiển thị dữ liệu từ các bảng gốc theo một cấu trúc hoặc tiêu chí nhất định.
+
+- Lý do sử dụng: Đơn giản hóa truy vấn dữ liệu phức tạp, ẩn thông tin quan trọng, tạo các lược đồ dữ liệu ảo cho người dùng cuối.
+
+- Cú pháp:
+
+```sql
+
+CREATE VIEW ten_view AS
+SELECT cot1, cot2, ...
+FROM bang1
+JOIN bang2 ON dieu_kien
+...
+
+```
+
+- Ví dụ:
+
+```sql
+CREATE VIEW ProductList AS
+SELECT ProductName, UnitPrice, UnitsInStock
+FROM Products
+WHERE Discontinued = 0;
+```
+
+Để truy vấn dữ liệu từ view, ta sử dụng lệnh SELECT thông thường:
+
+```sql
+SELECT * FROM ten_view;
+
+SELECT * FROM ProductList;
+```
+
+View được đặt tên là `ProductList`. Khi truy vấn dữ liệu từ view này, nó sẽ trả về danh sách các sản phẩm có tên, giá và số lượng tồn kho, loại bỏ các sản phẩm đã ngừng kinh doanh.
+
+## Function 
+
+- Function (Hàm) là một đối tượng trong MySQL cho phép thực thi một tập hợp các câu lệnh SQL và trả về kết quả. Hàm có thể nhận tham số đầu vào và trả về giá trị sau khi thực thi.
+
+- Lý do sử dụng: Tái sử dụng mã nguồn, thực hiện các phép tính phức tạp, tạo các quy tắc xử lý dữ liệu tùy chỉnh.
+
+- Cú pháp:
+
+```sql
+CREATE FUNCTION ten_function (tham_so1 kieu_du_lieu, tham_so2 kieu_du_lieu, ...)
+RETURNS kieu_du_lieu
+BEGIN
+    -- Body của function
+    RETURN gia_tri;
+END
+```
+
+- Ví dụ:
+
+```sql
+CREATE FUNCTION GetProductCount (categoryID INT)
+RETURNS INT
+BEGIN
+    DECLARE productCount INT;
+    SELECT COUNT(*) INTO productCount
+    FROM Products
+    WHERE CategoryID = categoryID;
+    RETURN productCount;
+END
+```
+
+Để sử dụng function, ta gọi tên function và truyền các tham số cần thiết:
+
+```sql
+SELECT ten_function(tham_so1, tham_so2, ...)
+
+SELECT GetProductCount(1);
+```
+Function được đặt tên là "GetProductCount". Khi gọi function này với tham số là categoryID, nó sẽ trả về số lượng sản phẩm có trong một danh mục được
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
