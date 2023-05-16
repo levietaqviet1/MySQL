@@ -2,6 +2,7 @@
 
 # :notebook_with_decorative_cover: Table of Contents
 - [Cách mở ER Diagram](#cách-mở-er-diagram)
+- [Cách export Script](#Cách-export-Script)
 - [Code cơ bản để nhớ lại lệch trong SQL](#Code-cơ-bản-để-nhớ-lại-lệch-trong-SQL) 
 - [Trigger](#Trigger)
 - [STORED PROCEDURE](#STORED-PROCEDURE)
@@ -27,6 +28,31 @@
 - Bước 6: Next đến khi nào ra thì thôi
 
 ![image](https://github.com/levietaqviet1/MySQL/assets/85175337/694f3977-0664-4594-a297-1d9c496d963a)
+
+## Cách export Script
+
+- Bước 1: Mở MySQL 
+
+- Bước 2: Chọn Server ở thanh công cụ
+
+![image](https://github.com/levietaqviet1/MySQL/assets/85175337/38607f5f-5129-49c1-b601-8db9814ae4ad)
+
+- Bước 3: Chọn data export
+
+![image](https://github.com/levietaqviet1/MySQL/assets/85175337/43aafdc7-901f-46a2-a09d-25835cb74d0b)
+
+- Bước 4: Chọn database muốn export code
+
+![image](https://github.com/levietaqviet1/MySQL/assets/85175337/110ead5e-02f3-458a-a20a-e337b32f284d)
+
+- Bước 5: Chọn Export to Self-Contained File và bấm dấu `...` ở bên tay phải để chọn nơi lưu trũ
+
+![image](https://github.com/levietaqviet1/MySQL/assets/85175337/83f30ae6-d450-487e-9a5e-d9bd23e75010)
+
+- Bước 6: Nhân Start Export sau khi hoàn thành
+
+![image](https://github.com/levietaqviet1/MySQL/assets/85175337/f294963d-a265-43da-8007-86ed52d43db3)
+
 
 ## Code cơ bản để nhớ lại lệch trong SQL
 
