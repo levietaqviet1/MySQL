@@ -4,6 +4,7 @@
 - [Cách mở ER Diagram](#cách-mở-er-diagram)
 - [Code cơ bản để nhớ lại lệch trong SQL](#Code-cơ-bản-để-nhớ-lại-lệch-trong-SQL) 
 - [Trigger](#Trigger)
+- [STORED PROCEDURE](#STORED-PROCEDURE)
 
 ## Cách mở ER Diagram
 
@@ -159,10 +160,48 @@ DELIMITER ;
 
 Khi một đơn hàng bị xóa khỏi bảng "orders", trigger sẽ tự động xóa tất cả các mặt hàng liên quan từ bảng "order_items", giúp chúng ta duy trì tính toàn vẹn của database.
 
+## STORED PROCEDURE
 
+- Stored Procedure được tạo ra nhằm thực hiện các lệnh của mysql theo một nhóm việc cụ thể thay vì thực hiện từng thao tác (insert,update,delete).
 
+- Lý do:  Làm tăng hiệu xuất sử lý giữ liệu, giảm thời gian giao tiếp giữa ứng dụng với hệ quản trị cơ sở giữ liệu. thay vì gửi từng câu truy vấn thì nay sẽ chỉ gửi một Stored Procedure. ...
 
+- Cú pháp
 
+```sql
+CREATE PROCEDURE <owner>.<procedure name>
+     <Param> <datatype>
+AS
+     <Body>
+Ví dụ:
+CREATE PROCEDURE Users_GetUserInfo
+    @login nvarchar(30)=null
+AS
+    SELECT * from users
+    WHERE ISNULL(@login,login)=login
+```
+
+Để thực thi precedure bằng script sử dụng lệnh EXECUTE:
+
+```sql
+EXECUTE procedure_name
+```
+
+- ví dụ: 
+
+```sql
+DELIMITER $$
+CREATE PROCEDURE calculate_total_salary()
+BEGIN
+    SELECT SUM(salary) FROM salaries;
+END$$
+DELIMITER ;
+
+CALL calculate_total_salary();
+
+```
+
+Stored Procedure được đặt tên là "calculate_total_salary". Khi Stored Procedure được gọi, nó sẽ thực hiện câu lệnh "SELECT SUM(salary) FROM salaries;", và trả về tổng lương của tất cả các nhân viên.
 
 
 
