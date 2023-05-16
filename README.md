@@ -115,6 +115,106 @@ DELETE FROM ten_bang WHERE dieu_kien;
 DROP TABLE ten_bang;
 ```
 
+- Tạo một bảng với khóa chính tự tăng (Auto Increment Primary Key):
+
+```sql
+CREATE TABLE ten_bang (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cot_1_kieu_du_lieu,
+    cot_2_kieu_du_lieu,
+    ...
+);
+```
+
+- Thêm một cột mới vào bảng:
+
+```sql
+ALTER TABLE ten_bang
+ADD COLUMN ten_cot kieu_du_lieu;
+```
+
+- Đổi tên bảng:
+
+```sql
+ALTER TABLE ten_bang_cu
+RENAME TO ten_bang_moi;
+```
+
+- Đổi tên cột:
+
+```sql
+ALTER TABLE ten_bang
+CHANGE COLUMN ten_cot_cu ten_cot_moi kieu_du_lieu;
+```
+
+- Xóa cột trong bảng:
+
+```sql
+ALTER TABLE ten_bang
+DROP COLUMN ten_cot;
+```
+
+- Tạo một khóa ngoại (Foreign Key) trong bảng:
+
+```sql
+ALTER TABLE ten_bang_1
+ADD CONSTRAINT fk_ten_bang_1_ten_bang_2
+FOREIGN KEY (ten_cot)
+REFERENCES ten_bang_2 (ten_cot);
+```
+
+- Xóa khóa ngoại:
+
+```sql
+ALTER TABLE ten_bang_1
+DROP FOREIGN KEY fk_ten_bang_1_ten_bang_2;
+```
+
+- Tạo một khóa chính chung (Composite Primary Key) trong bảng:
+
+```sql
+CREATE TABLE ten_bang (
+    cot_1_kieu_du_lieu,
+    cot_2_kieu_du_lieu,
+    ...
+    PRIMARY KEY (cot_1, cot_2)
+);
+```
+
+- Tạo một chỉ mục (Index) trong bảng:
+
+```sql
+CREATE INDEX ten_chi_muc ON ten_bang (cot);
+```
+
+- Xóa chỉ mục:
+
+```sql
+DROP INDEX ten_chi_muc ON ten_bang;
+```
+
+- Thay đổi kiểu dữ liệu của cột:
+
+```sql
+ALTER TABLE ten_bang
+MODIFY COLUMN ten_cot kieu_du_lieu_moi;
+```
+
+- Thêm ràng buộc NOT NULL cho cột:
+
+```sql
+ALTER TABLE ten_bang
+MODIFY COLUMN ten_cot kieu_du_lieu NOT NULL;
+```
+
+- Thêm một khóa duy nhất (Unique Key) trong bảng:
+
+```sql
+ALTER TABLE ten_bang
+ADD CONSTRAINT ten_khoa_duy_nhat UNIQUE (cot);
+```
+
+
 ## Trigger 
 
 - `Trigger` là một đối tượng được định danh trong `CSDL` và được gắn chặt với một sự kiện xảy ra trên một bảng nào đó 
